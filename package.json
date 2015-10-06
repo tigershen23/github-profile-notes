@@ -1,0 +1,19 @@
+{
+  "name": "profile-notetaker",
+  "version": "1.0.0",
+  "description": "Take notes on GitHub profiles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tigershen23/profile-notetaker.git"
+  },
+  "author": "tigershen23",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tigershen23/profile-notetaker/issues"
+  },
+  "homepage": "https://github.com/tigershen23/profile-notetaker#readme"
+}
