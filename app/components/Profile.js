@@ -20,14 +20,23 @@ var Profile = React.createClass({
     };
   },
 
-  componentDidMount: function() {
-    this.ref = new Firebase("https://profile-notetaker.firebaseio.com/");
+  init: function() {
     var childRef = this.ref.child(this.getParams().username);
     this.bindAsArray(childRef, 'notes');
   },
 
+  componentDidMount: function() {
+    this.ref = new Firebase("https://profile-notetaker.firebaseio.com/");
+    this.init()
+  },
+
   componentWillUnmount: function() {
     this.unbind('notes');
+  },
+
+  componentWillReceiveProps: function(nextProps) {
+    this.unbind('notes');
+    this.init();
   },
 
   handleAddNote: function(newNote) {
