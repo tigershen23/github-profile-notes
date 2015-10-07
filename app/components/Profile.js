@@ -24,11 +24,6 @@ var Profile = React.createClass({
   init: function() {
     var childRef = this.ref.child(this.getParams().username);
     this.bindAsArray(childRef, 'notes');
-  },
-
-  componentDidMount: function() {
-    this.ref = new Firebase("https://profile-notetaker.firebaseio.com/");
-    this.init()
 
     helpers.getGithubInfo(this.getParams().username)
       .then(function(dataObj) {
@@ -37,6 +32,11 @@ var Profile = React.createClass({
           repos: dataObj.repos
         })
       }.bind(this));
+  },
+
+  componentDidMount: function() {
+    this.ref = new Firebase("https://profile-notetaker.firebaseio.com/");
+    this.init()
   },
 
   componentWillUnmount: function() {
