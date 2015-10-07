@@ -9,6 +9,7 @@ var Repos = require('./Github/Repos');
 var Notes = require('./Notes/Notes');
 var ReactFireMixin = require('reactfire');
 var Firebase = require('firebase');
+var helpers = require('../utils/helpers');
 
 var Profile = React.createClass({
   mixins: [Router.State, ReactFireMixin],
@@ -28,6 +29,14 @@ var Profile = React.createClass({
   componentDidMount: function() {
     this.ref = new Firebase("https://profile-notetaker.firebaseio.com/");
     this.init()
+
+    helpers.getGithubInfo(this.getParams().username)
+      .then(function(dataObj) {
+        this.setState({
+          bio: dataObj.bio,
+          repos: dataObj.repos
+        })
+      }.bind(this));
   },
 
   componentWillUnmount: function() {
