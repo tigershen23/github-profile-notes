@@ -2,12 +2,11 @@
  * @jsx React.DOM
  */
 
-var React = require('react');
+import React from "react"
 
-var NotesList = React.createClass({
-
-  render: function() {
-    var notes = this.props.notes.map(function(note, i){
+class NotesList extends React.Component {
+  render() {
+    var notes = this.props.notes.map((note, i) => {
       return <li className="list-group-item" key={i}>{note}</li>
     });
     return (
@@ -16,7 +15,6 @@ var NotesList = React.createClass({
       </ul>
     );
   }
+}
 
-});
-
-module.exports = NotesList;
+export default NotesList;
