@@ -6,11 +6,11 @@ import React from "react"
 
 class SearchGithub extends React.Component {
   handleSubmit() {
-    var router = this.context.router;
-    var usernameNode = this.refs.username.getDOMNode();
-    var username = usernameNode.value;
-    usernameNode.value = '';
-    router.transitionTo('profile', {username: username});
+    var router = this.context.router
+    var usernameNode = this.refs.username.getDOMNode()
+    var username = usernameNode.value
+    usernameNode.value = ""
+    router.transitionTo("profile", {username: username})
   }
 
   render() {
@@ -25,12 +25,12 @@ class SearchGithub extends React.Component {
           </div>
         </form>
       </div>
-    );
+    )
   }
 }
 
 SearchGithub.contextTypes = {
   router: React.PropTypes.func.isRequired
-};
+}
 
-export default SearchGithub;
+export default SearchGithub

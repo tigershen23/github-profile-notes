@@ -10,8 +10,8 @@ class Home extends React.Component {
       <h2 className="text-center">
         Search by GitHub Username Above
       </h2>
-    );
+    )
   }
 }
 
-export default Home;
+export default Home

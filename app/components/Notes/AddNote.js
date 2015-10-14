@@ -6,10 +6,10 @@ import React from "react"
 
 class AddNote extends React.Component {
   handleSubmit() {
-    var noteNode = this.refs.note.getDOMNode();
-    var newNote = noteNode.value;
-    noteNode.value = '';
-    this.props.addNote(newNote);
+    var noteNode = this.refs.note.getDOMNode()
+    var newNote = noteNode.value
+    noteNode.value = ""
+    this.props.addNote(newNote)
   }
 
   render() {
@@ -22,13 +22,13 @@ class AddNote extends React.Component {
           </button>
         </span>
       </div>
-    );
+    )
   }
 }
 
 AddNote.propTypes = {
-    username: React.PropTypes.string.isRequired,
-    addNote: React.PropTypes.func.isRequired
-};
+  username: React.PropTypes.string.isRequired,
+  addNote: React.PropTypes.func.isRequired
+}
 
-export default AddNote;
+export default AddNote

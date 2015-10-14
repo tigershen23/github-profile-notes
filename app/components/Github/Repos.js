@@ -10,10 +10,10 @@ class Repos extends React.Component {
       return (
         <li className="list-group-item" key={i}>
           {repo.html_url && <h4><a href={repo.html_url}>{repo.name}</a></h4>}
-          {repo.description  && <p>{repo.description}</p>}
+          {repo.description && <p>{repo.description}</p>}
         </li>
       )
-    });
+    })
 
     return (
       <div>
@@ -22,13 +22,13 @@ class Repos extends React.Component {
           {repos}
         </ul>
       </div>
-    );
+    )
   }
 }
 
 Repos.propTypes = {
   username: React.PropTypes.string.isRequired,
   repos: React.PropTypes.array.isRequired
-};
+}
 
 export default Repos

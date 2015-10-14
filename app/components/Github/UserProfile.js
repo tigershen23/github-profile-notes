@@ -20,13 +20,13 @@ class UserProfile extends React.Component {
           {this.props.bio.blog && <li className="list-group-item">Blog: <a href={this.props.bio.blog}> {this.props.bio.blog}</a></li>}
         </ul>
       </div>
-    );
+    )
   }
 }
 
 UserProfile.propTypes = {
   username: React.PropTypes.string.isRequired,
   bio: React.PropTypes.object.isRequired
-};
+}
 
-export default UserProfile;
+export default UserProfile

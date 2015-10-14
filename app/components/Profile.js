@@ -7,13 +7,13 @@ import Repos from "./Github/Repos"
 import UserProfile from "./Github/UserProfile"
 import Notes from "./Notes/Notes"
 import helpers from "../utils/helpers"
-import Rebase from "re-base";
+import Rebase from "re-base"
 
-var base = Rebase.createClass("https://profile-notetaker.firebaseio.com/");
+var base = Rebase.createClass("https://profile-notetaker.firebaseio.com/")
 
 class Profile extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       notes: [],
       bio: {},
@@ -26,44 +26,44 @@ class Profile extends React.Component {
     this.ref = base.bindToState(username, {
       context: this,
       asArray: true,
-      state: 'notes'
-    });
+      state: "notes"
+    })
 
     helpers.getGithubInfo(username)
     .then((dataObj) => {
-        this.setState({
+      this.setState({
           bio: dataObj.bio,
           repos: dataObj.repos
         })
-      });
+    })
   }
 
   componentWillMount() {
-    this.router = this.context.router;
+    this.router = this.context.router
   }
 
   componentDidMount() {
-    this.ref = new Firebase("https://profile-notetaker.firebaseio.com/");
+    this.ref = new Firebase("https://profile-notetaker.firebaseio.com/")
     this.init()
   }
 
   componentWillUnmount() {
-    base.removeBinding(this.ref);
+    base.removeBinding(this.ref)
   }
 
   componentWillReceiveProps(nextProps) {
-    base.removeBinding(this.ref);
-    this.init();
+    base.removeBinding(this.ref)
+    this.init()
   }
 
   handleAddNote(newNote) {
     base.post(this.router.getCurrentParams().username, {
       data: this.state.notes.concat([newNote])
-    });
+    })
   }
 
   render() {
-    var username = this.router.getCurrentParams().username;
+    var username = this.router.getCurrentParams().username
     return (
       <div className="row">
         <div className="col-md-4">
@@ -79,12 +79,12 @@ class Profile extends React.Component {
             addNote={this.handleAddNote.bind(this)} />
         </div>
       </div>
-    );
+    )
   }
 }
 
 Profile.contextTypes = {
   router: React.PropTypes.func.isRequired
-};
+}
 
-export default Profile;
+export default Profile

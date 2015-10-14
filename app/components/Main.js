@@ -20,8 +20,8 @@ class Main extends React.Component {
           {this.props.children}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Main;
+export default Main

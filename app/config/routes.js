@@ -9,4 +9,4 @@ module.exports = (
     <Route name="profile" path="profile/:username" handler={Profile} />
     <DefaultRoute handler={Home} />
   </Route>
-);
+)
