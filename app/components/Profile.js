@@ -9,7 +9,7 @@ import Notes from "./Notes/Notes"
 import helpers from "../utils/helpers"
 import Rebase from "re-base"
 
-var base = Rebase.createClass("https://profile-notetaker.firebaseio.com/")
+const base = Rebase.createClass("https://profile-notetaker.firebaseio.com/")
 
 class Profile extends React.Component {
   constructor(props) {
@@ -17,25 +17,8 @@ class Profile extends React.Component {
     this.state = {
       notes: [],
       bio: {},
-      repos: []
+      repos: [],
     }
-  }
-
-  init() {
-    var username = this.router.getCurrentParams().username
-    this.ref = base.bindToState(username, {
-      context: this,
-      asArray: true,
-      state: "notes"
-    })
-
-    helpers.getGithubInfo(username)
-    .then((dataObj) => {
-      this.setState({
-          bio: dataObj.bio,
-          repos: dataObj.repos
-        })
-    })
   }
 
   componentWillMount() {
@@ -43,7 +26,11 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    this.ref = new Firebase("https://profile-notetaker.firebaseio.com/")
+    this.init()
+  }
+
+  componentWillReceiveProps() {
+    base.removeBinding(this.ref)
     this.init()
   }
 
@@ -51,19 +38,31 @@ class Profile extends React.Component {
     base.removeBinding(this.ref)
   }
 
-  componentWillReceiveProps(nextProps) {
-    base.removeBinding(this.ref)
-    this.init()
+  init() {
+    const username = this.router.getCurrentParams().username
+    this.ref = base.bindToState(username, {
+      context: this,
+      asArray: true,
+      state: "notes",
+    })
+
+    helpers.getGithubInfo(username)
+    .then((dataObj) => {
+      this.setState({
+        bio: dataObj.bio,
+        repos: dataObj.repos,
+      })
+    })
   }
 
   handleAddNote(newNote) {
     base.post(this.router.getCurrentParams().username, {
-      data: this.state.notes.concat([newNote])
+      data: this.state.notes.concat([newNote]),
     })
   }
 
   render() {
-    var username = this.router.getCurrentParams().username
+    const username = this.router.getCurrentParams().username
     return (
       <div className="row">
         <div className="col-md-4">
@@ -84,7 +83,7 @@ class Profile extends React.Component {
 }
 
 Profile.contextTypes = {
-  router: React.PropTypes.func.isRequired
+  router: React.PropTypes.func.isRequired,
 }
 
 export default Profile

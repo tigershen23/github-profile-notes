@@ -24,4 +24,8 @@ class Main extends React.Component {
   }
 }
 
+Main.propTypes = {
+  children: React.PropTypes.array,
+}
+
 export default Main

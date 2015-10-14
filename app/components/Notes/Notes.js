@@ -21,7 +21,7 @@ class Notes extends React.Component {
 Notes.propTypes = {
   username: React.PropTypes.string.isRequired,
   notes: React.PropTypes.array.isRequired,
-  addNote: React.PropTypes.func.isRequired
+  addNote: React.PropTypes.func.isRequired,
 }
 
 export default Notes
