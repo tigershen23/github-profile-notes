@@ -1,5 +1,5 @@
 {
-  "name": "profile-notetaker",
+  "name": "github-profile-notes",
   "version": "1.0.0",
   "description": "Take notes on GitHub profiles",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tigershen23/profile-notetaker.git"
+    "url": "git+https://github.com/tigershen23/github-profile-notes.git"
   },
   "author": "tigershen23",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tigershen23/profile-notetaker/issues"
+    "url": "https://github.com/tigershen23/github-profile-notes/issues"
   },
-  "homepage": "https://github.com/tigershen23/profile-notetaker#readme",
+  "homepage": "https://github.com/tigershen23/github-profile-notes#readme",
   "dependencies": {
     "axios": "^0.7.0",
     "firebase": "^2.3.1",

@@ -1,2 +1,1 @@
-# Profile NoteTaker
-# profile-notetaker
+# Github Profile Notes
