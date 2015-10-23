@@ -1,9 +1,10 @@
 var webpack = require('webpack');
+var rewirePlugin = require('rewire-webpack');
 
 module.exports = function (config) {
   config.set({
     browsers: [ 'Chrome' ],
-    singleRun: true,
+    singleRun: false,
     frameworks: [ 'mocha' ],
     files: [
       'test.webpack.js'
@@ -18,7 +19,10 @@ module.exports = function (config) {
         loaders: [
           { test: /\.js$/, loader: 'babel-loader' }
         ]
-      }
+      },
+      plugins: [
+        new rewirePlugin()
+      ],
     },
     webpackServer: {
       noInfo: true
