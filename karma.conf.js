@@ -1,5 +1,4 @@
 var webpack = require('webpack');
-var rewirePlugin = require('rewire-webpack');
 
 module.exports = function (config) {
   config.set({
@@ -20,9 +19,6 @@ module.exports = function (config) {
           { test: /\.js$/, loader: 'babel-loader' }
         ]
       },
-      plugins: [
-        new rewirePlugin()
-      ],
     },
     webpackServer: {
       noInfo: true
