@@ -1,6 +1,6 @@
 import React from "react"
 import TestUtils from "react-addons-test-utils"
-let expect = require('expect');
+//let expect = require('expect');
 
 let SearchGithub = require('../SearchGithub');
 
@@ -13,7 +13,7 @@ describe("root", function() {
   })
 
   it("renders without error", function() {
-    expect(this.result).toExist()
+    expect(this.result).toBeDefined()
   })
 
   it("renders with the correct structure", function() {

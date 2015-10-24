@@ -4,12 +4,12 @@ module.exports = function (config) {
   config.set({
     browsers: [ 'Chrome' ],
     singleRun: false,
-    frameworks: [ 'mocha' ],
+    frameworks: [ 'jasmine' ],
     files: [
-      'test.webpack.js'
+      "./app/**/*-test.js"
     ],
     preprocessors: {
-      'test.webpack.js': [ 'webpack', 'sourcemap' ]
+      "./app/**/*-test.js": [ 'webpack' ]
     },
     reporters: [ 'dots' ],
     webpack: {
@@ -20,6 +20,11 @@ module.exports = function (config) {
         ]
       },
     },
+    plugins: [
+      require("karma-webpack"),
+      require("karma-jasmine"),
+      require("karma-chrome-launcher")
+    ],
     webpackServer: {
       noInfo: true
     }
