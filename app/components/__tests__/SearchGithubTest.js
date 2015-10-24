@@ -13,9 +13,24 @@ describe("root", function() {
     this.renderer.render(<SearchGithub />, { router: React.PropTypes.func })
   })
 
-  it("renders without problems", function() {
+  it("renders without error", function() {
     let result = this.renderer.getRenderOutput()
     expect(result).toExist()
+  })
+
+  it("renders as a div", function() {
+    let result = this.renderer.getRenderOutput()
+
+    //debugger;
     expect(result.type).toEqual("div")
+    expect(result.props.children)
+    //<form onSubmit={this.handleSubmit.bind(this)}>
+      //<div className="form-group col-sm-7">
+        //<input className="form-control" type="text" ref="username" />
+      //</div>
+      //<div className="form-group col-sm-5">
+        //<button type="submit" className="btn btn-block btn-primary">Search Github</button>
+      //</div>
+    //</form>
   });
 })
