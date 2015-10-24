@@ -40,6 +40,8 @@
     "karma-webpack": "^1.7.0",
     "mocha": "^2.1.0",
     "react-addons-test-utils": "^0.14.0",
+    "react-shallow-render": "^1.0.1",
+    "react-shallow-testutils": "^0.6.0",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.1"
   }

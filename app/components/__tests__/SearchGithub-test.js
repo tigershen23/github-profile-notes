@@ -19,7 +19,6 @@ describe("root", function() {
   it("renders with the correct structure", function() {
     expect(this.result.type).toEqual("div")
 
-    //debugger;
     let usernameInput = this.result.props.children.props.children[0].props.children
     expect(usernameInput.type).toEqual("input")
     expect(usernameInput.ref).toEqual("username")
