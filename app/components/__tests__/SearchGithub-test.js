@@ -1,4 +1,5 @@
 import React from "react"
+import ReactDOM from "react-dom"
 import TestUtils from "react-addons-test-utils"
 import shallowRender from "../../utils/test/shallowRender"
 import ShallowTestUtils from "react-shallow-testutils"
@@ -34,19 +35,15 @@ describe("SearchGithub", function() {
       let stubContext = require("react-stub-context")
       SearchGithub = stubContext(SearchGithub, { router: React.PropTypes.func })
       this.component = renderIntoDocument(<SearchGithub />)
-      this.componentDOM = () => React.findDOMNode(this.component)
-      this.inputDOM = () => this.componentDOM().children[0].children[0].children[0]
+      this.componentDOM = () => ReactDOM.findDOMNode(this.component)
     })
 
     it("triggers handleSubmit and clears input when button is clicked", function() {
-      //debugger;
-      //let inputDOM = TestUtils.findRenderedComponentWithType(this.componentDOM(), SearchGithub)
-      //let buttonDOM = TestUtils.findRenderedComponentWithType(this.componentDOM(), "button")
+      let inputDOM = TestUtils.findRenderedDOMComponentWithTag(this.component, "input")
+      let buttonDOM = TestUtils.findRenderedDOMComponentWithTag(this.component, "button")
 
-      //expect(inputDOM).toBeDefined
-      //expect(buttonDOM).toBeDefined
-
-      expect(TestUtils.isElementOfType(this.inputDOM(), "input")).toBeTrue
+      expect(inputDOM).toBeDefined
+      expect(buttonDOM).toBeDefined
     })
   })
 })
