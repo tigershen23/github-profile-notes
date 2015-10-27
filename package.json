@@ -19,6 +19,7 @@
   "homepage": "https://github.com/tigershen23/github-profile-notes#readme",
   "dependencies": {
     "axios": "^0.7.0",
+    "history": "^1.12.6",
     "re-base": "^1.1.2",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",

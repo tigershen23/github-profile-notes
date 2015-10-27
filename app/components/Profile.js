@@ -26,6 +26,7 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     this.init()
   }
 

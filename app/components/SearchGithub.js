@@ -6,11 +6,12 @@ import React from "react"
 
 class SearchGithub extends React.Component {
   handleSubmit() {
-    const router = this.context.router
+    const history = this.context.history
     const usernameNode = this.refs.username
     const username = usernameNode.value
     usernameNode.value = ""
-    router.transitionTo("profile", {username: username})
+    debugger;
+    history.pushState(null, `/profile/${username}`)
   }
 
   render() {
@@ -30,7 +31,7 @@ class SearchGithub extends React.Component {
 }
 
 SearchGithub.contextTypes = {
-  router: React.PropTypes.func.isRequired,
+  history: React.PropTypes.object.isRequired,
 }
 
 export default SearchGithub
