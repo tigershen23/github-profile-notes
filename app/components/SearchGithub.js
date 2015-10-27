@@ -7,7 +7,7 @@ import React from "react"
 class SearchGithub extends React.Component {
   handleSubmit() {
     const router = this.context.router
-    const usernameNode = this.refs.username.getDOMNode()
+    const usernameNode = this.refs.username
     const username = usernameNode.value
     usernameNode.value = ""
     router.transitionTo("profile", {username: username})
