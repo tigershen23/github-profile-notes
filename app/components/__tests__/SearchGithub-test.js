@@ -9,9 +9,13 @@ let { findWithType } = ShallowTestUtils
 let SearchGithub = require('../SearchGithub');
 
 describe("SearchGithub", function() {
+  let history = {
+    pushState: function() {}
+  }
+
   describe("structure", function() {
     beforeEach(function() {
-      this.result = shallowRender(<SearchGithub />, { router: React.PropTypes.func })
+      this.result = shallowRender(<SearchGithub />, { history } )
     })
 
     it("renders without error", function() {
@@ -33,17 +37,20 @@ describe("SearchGithub", function() {
   describe("behavior", function() {
     beforeEach(function() {
       let stubContext = require("react-stub-context")
-      SearchGithub = stubContext(SearchGithub, { router: React.PropTypes.func })
+      SearchGithub = stubContext(SearchGithub, { history })
       this.component = renderIntoDocument(<SearchGithub />)
       this.componentDOM = () => ReactDOM.findDOMNode(this.component)
     })
 
     it("triggers handleSubmit and clears input when button is clicked", function() {
       let inputDOM = TestUtils.findRenderedDOMComponentWithTag(this.component, "input")
-      let buttonDOM = TestUtils.findRenderedDOMComponentWithTag(this.component, "button")
+      let formDOM = TestUtils.findRenderedDOMComponentWithTag(this.component, "form")
 
-      expect(inputDOM).toBeDefined
-      expect(buttonDOM).toBeDefined
+      inputDOM.value = "tigershen23"
+      Simulate.change(inputDOM)
+      Simulate.submit(formDOM)
+
+      expect(inputDOM.value).toEqual("")
     })
   })
 })
