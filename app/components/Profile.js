@@ -22,11 +22,10 @@ class Profile extends React.Component {
   }
 
   componentWillMount() {
-    this.router = this.context.router
+    this.history = this.context.history
   }
 
   componentDidMount() {
-    debugger;
     this.init()
   }
 
@@ -40,7 +39,7 @@ class Profile extends React.Component {
   }
 
   init() {
-    const username = this.router.getCurrentParams().username
+    const username = this.props.params.username
     this.ref = base.bindToState(username, {
       context: this,
       asArray: true,
@@ -57,13 +56,13 @@ class Profile extends React.Component {
   }
 
   handleAddNote(newNote) {
-    base.post(this.router.getCurrentParams().username, {
+    base.post(this.props.params.username, {
       data: this.state.notes.concat([newNote]),
     })
   }
 
   render() {
-    const username = this.router.getCurrentParams().username
+    const username = this.props.params.username
     return (
       <div className="row">
         <div className="col-md-4">
@@ -84,7 +83,7 @@ class Profile extends React.Component {
 }
 
 Profile.contextTypes = {
-  router: React.PropTypes.func.isRequired,
+  history: React.PropTypes.object.isRequired,
 }
 
 export default Profile

@@ -9,7 +9,6 @@ import createBrowserHistory from "history/lib/createBrowserHistory"
 import routes from "./config/routes"
 
 let history = createBrowserHistory()
-debugger;
 let elementToRenderIn = document.getElementById('app')
 
 ReactDOM.render(<Router history={history}>{routes}</Router>, elementToRenderIn)

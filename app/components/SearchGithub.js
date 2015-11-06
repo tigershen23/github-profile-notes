@@ -10,7 +10,6 @@ class SearchGithub extends React.Component {
     const usernameNode = this.refs.username
     const username = usernameNode.value
     usernameNode.value = ""
-    debugger;
     history.pushState(null, `/profile/${username}`)
   }
 
