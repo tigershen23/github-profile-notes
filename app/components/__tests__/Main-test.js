@@ -21,9 +21,9 @@ describe("Main", function() {
     })
 
     it("renders a SearchGithub component", function() {
-      let searchComponent = findWithType(this.result, SearchGithub)
+      let searchGithubComponent = findWithType(this.result, SearchGithub)
 
-      expect(searchComponent).toBeDefined()
+      expect(searchGithubComponent).toBeDefined()
     })
   })
 })
