@@ -4,8 +4,6 @@ import TestUtils from "react-addons-test-utils"
 import shallowRender from "../../utils/test/shallowRender"
 import ShallowTestUtils from "react-shallow-testutils"
 
-let { Simulate, renderIntoDocument } = TestUtils
-let { findWithType } = ShallowTestUtils
 let Home = require('../Home');
 
 describe("Home", function() {
