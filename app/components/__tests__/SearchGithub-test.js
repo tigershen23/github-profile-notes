@@ -43,6 +43,8 @@ describe("SearchGithub", function() {
     })
 
     it("triggers handleSubmit and clears input when button is clicked", function() {
+      spyOn(history, "pushState")
+
       let inputDOM = TestUtils.findRenderedDOMComponentWithTag(this.component, "input")
       let formDOM = TestUtils.findRenderedDOMComponentWithTag(this.component, "form")
 
@@ -51,6 +53,7 @@ describe("SearchGithub", function() {
       Simulate.submit(formDOM)
 
       expect(inputDOM.value).toEqual("")
+      expect(history.pushState).toHaveBeenCalledWith(null, "/profile/tigershen23")
     })
   })
 })
